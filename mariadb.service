@@ -1,0 +1,11 @@
+[Unit]
+Description=MariaDB
+
+[Service]
+Restart=on-failure
+WorkingDirectory=/opt/docker-mariadb
+ExecStart=/usr/local/bin/podman-compose up
+ExecStop=/usr/local/bin/podman-compose down
+
+[Install]
+WantedBy=default.target
