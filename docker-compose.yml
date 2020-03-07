@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 services:
   mariadb:
     image: mariadb:latest
@@ -10,16 +10,3 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - ./conf.d:/etc/mysql/conf.d
       - ./datadir:/var/lib/mysql
-      #- /var/run/mysqld:/var/run/mysqld
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin:latest
-    container_name: phpmyadmin
-    restart: always
-    ports:
-      - "81:80"
-    environment:
-      - PMA_ARBITRARY=1
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-    depends_on:
-      - mariadb
