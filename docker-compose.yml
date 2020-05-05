@@ -6,6 +6,8 @@ services:
     restart: always
     ports:
       - "3306:3306"
+    environment:
+      TZ: Asia/Tokyo
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./conf.d:/etc/mysql/conf.d
